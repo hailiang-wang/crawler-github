@@ -18,7 +18,13 @@ var _ = require('lodash');
 // }
 
 var _c = new Crawler({
-    maxConnections: 10,
+    maxConnections: 1000,
+    rotateUA: true,
+    userAgent: ["Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405",
+		"Mozilla/5.0 (Windows; U; Windows NT 5.2) Gecko/2008070208 Firefox/3.0.1",
+		"Opera/8.0 (Macintosh; PPC Mac OS X; U; en)",
+		"Mozilla/5.0 (Windows; U; Windows NT 5.2) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.27 Safari/525.13 ",
+		"Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) ;  QIHU 360EE)"],
     forceUTF8: true
     // This will be called for each crawled page
     // callback: function(error, result, $) {

@@ -8,7 +8,7 @@ function sleep(){
     return new Promise((resolve, reject) => {
         setTimeout(()=>{
             resolve()
-        }, 1000)
+        }, 3000)
     })
 }
 
@@ -25,15 +25,18 @@ function printAllUserIds(response){
 test('Web Pages Crawler', async (t)=> {
     // should get paths of http://bbs.byr.cn/#!board/Friends
     let maxIndex = 1648
-    for(let index = 1; index <= maxIndex; index++){
+    for(let index = 901; index <= maxIndex; index++){
         console.log("index ", index)
         await sleep();
+	let uri = `http://outofmemory.cn/github/*/*/?sort=stars&page=${index}`;
+	console.log("uri", uri)
         let response = await crawler.queue({
-            uri: `http://outofmemory.cn/github/*/*/?sort=stars&page=${index}`,
+            uri: uri,
             headers: {
                 'X-Requested-With': 'XMLHttpRequest'
             }
         });
+	console.log(response.result.body)
         printAllUserIds(response);
     }
     // should(response.result).ok;
